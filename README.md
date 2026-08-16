@@ -5,7 +5,7 @@
 > **SkyXNetwork custom fork (WIP) for Paper 26.1.2**
 >
 > ⚠️ **This is a special fork made to run on SkyXNetwork servers.**
-> Using this custom build on any other server is **at your own risk** — SkyXNetwork is **not responsible**
+> Using this custom build on any other server is **at your own risk** - SkyXNetwork is **not responsible**
 > for any damage, data loss or instability caused by this plugin.
 >
 > This repository is based on the `feat/26_1_2` branch of [ArikSquad/Terra](https://github.com/ArikSquad/Terra/tree/feat/26_1_2)
@@ -20,14 +20,14 @@
 > **Risks**: unmerged upstream code, may contain bugs; PR maintained by a third-party contributor.
 > Replace with an official release as soon as one natively supports 26.1.2.
 >
-> **IMPORTANT — upgrading from an older dev build (e.g. 6.6.6-BETA+451683aff):**
+> **IMPORTANT - upgrading from an older dev build (e.g. 6.6.6-BETA+451683aff):**
 > empty `plugins/Terra/addons/` **and** `plugins/Terra/packs/` + `plugins/Terra/metapacks/` before/after replacing
 > the jar. Terra's auto-replacement only removes files with the same name; leftover renamed addons
 > (e.g. `biome-provider-pipeline-v2@…451683aff`) cause
 > `NoClassDefFoundError: com/dfsek/terra/api/noise/NoiseSampler` (noise package removed from the API), and leftover
 > packs (e.g. Overworld v1.5.2) cause `No such BaseAddon "biome-provider-pipeline-v2"` +
 > `DuplicateEntryException "OVERWORLD:OVERWORLD"`. Keep only `Overworld.zip`, `ReimagEND.zip`, `Tartarus.zip` in
-> `packs/` and `default.zip` in `metapacks/` (no foreign folders — `packs/` is scanned as-is). When in doubt, delete
+> `packs/` and `default.zip` in `metapacks/` (no foreign folders - `packs/` is scanned as-is). When in doubt, delete
 > the whole `plugins/Terra/` folder (back up your custom packs/configs first) and let Terra re-dump everything from
 > the jar.
 >
