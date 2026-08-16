@@ -2,32 +2,37 @@
 
 # Terra
 
-> **Fork custom (WIP) pour Paper 26.1.2**
+> **SkyXNetwork custom fork (WIP) for Paper 26.1.2**
 >
-> Ce dépôt est basé sur la branche `feat/26_1_2` de [ArikSquad/Terra](https://github.com/ArikSquad/Terra/tree/feat/26_1_2)
-> (PR [PolyhedralDev/Terra#559](https://github.com/PolyhedralDev/Terra/pull/559), non mergée au moment du build,
+> ⚠️ **This is a special fork made to run on SkyXNetwork servers.**
+> Using this custom build on any other server is **at your own risk** — SkyXNetwork is **not responsible**
+> for any damage, data loss or instability caused by this plugin.
+>
+> This repository is based on the `feat/26_1_2` branch of [ArikSquad/Terra](https://github.com/ArikSquad/Terra/tree/feat/26_1_2)
+> (PR [PolyhedralDev/Terra#559](https://github.com/PolyhedralDev/Terra/pull/559), unmerged at build time,
 > commit `47d4307`).
-> Aucune release officielle de Terra ne supporte encore Bukkit/Paper 26.1.2 (dernière release officielle : 6.2.0-BETA, Bukkit 1.19).
+> No official Terra release supports Bukkit/Paper 26.1.2 yet (latest official release: 6.2.0-BETA, Bukkit 1.19).
 >
-> Build produit localement le 2026-08-16 avec Gradle 9.5.0 / JDK 25 :
-> - Jar déployable : `dist/Terra-bukkit-7.0.0-BETA+ee6d582-shaded.jar` (bindings NMS `v26_1_2` inclus + addons core)
-> - À régénérer : `./gradlew :platforms:bukkit:build` (JDK 25 requis, `platforms/bukkit/build/libs/`)
+> Built locally on 2026-08-16 with Gradle 9.5.0 / JDK 25:
+> - Deployable jar: `dist/Terra-bukkit-7.0.0-BETA+ee6d582-shaded.jar` (includes NMS bindings `v26_1_2` + core addons)
+> - To rebuild: `./gradlew :platforms:bukkit:build` (JDK 25 required, output in `platforms/bukkit/build/libs/`)
 >
-> **Risques** : code non mergé upstream, peut contenir des bugs ; PR maintenue par un contributeur tiers.
-> À remplacer par une release officielle dès qu'elle supportera nativement 26.1.2.
+> **Risks**: unmerged upstream code, may contain bugs; PR maintained by a third-party contributor.
+> Replace with an official release as soon as one natively supports 26.1.2.
 >
-> **IMPORTANT — mise à niveau depuis un ancien build dev (ex. 6.6.6-BETA+451683aff) :**
-> videz `plugins/Terra/addons/` **et** `plugins/Terra/packs/` + `plugins/Terra/metapacks/` avant/après le remplacement
-> du jar. Le mécanisme d'auto-remplacement de Terra ne supprime que les fichiers portant le même nom ; les anciens
-> addons renommés (ex. `biome-provider-pipeline-v2@…451683aff`) restent et provoquent un
-> `NoClassDefFoundError: com/dfsek/terra/api/noise/NoiseSampler` (package noise supprimé de l'API), et les anciens packs
-> (ex. Overworld v1.5.2) provoquent `No such BaseAddon "biome-provider-pipeline-v2"` + `DuplicateEntryException
-> "OVERWORLD:OVERWORLD"`. Ne gardez que `Overworld.zip`, `ReimagEND.zip`, `Tartarus.zip` dans `packs/` et `default.zip`
-> dans `metapacks/` (aucun dossier étranger — `packs/` est scanné tel quel). En cas de doute, supprimez tout le dossier
-> `plugins/Terra/` (sauvegardez vos packs/configs custom avant) et laissez Terra tout re-dumper depuis le jar.
+> **IMPORTANT — upgrading from an older dev build (e.g. 6.6.6-BETA+451683aff):**
+> empty `plugins/Terra/addons/` **and** `plugins/Terra/packs/` + `plugins/Terra/metapacks/` before/after replacing
+> the jar. Terra's auto-replacement only removes files with the same name; leftover renamed addons
+> (e.g. `biome-provider-pipeline-v2@…451683aff`) cause
+> `NoClassDefFoundError: com/dfsek/terra/api/noise/NoiseSampler` (noise package removed from the API), and leftover
+> packs (e.g. Overworld v1.5.2) cause `No such BaseAddon "biome-provider-pipeline-v2"` +
+> `DuplicateEntryException "OVERWORLD:OVERWORLD"`. Keep only `Overworld.zip`, `ReimagEND.zip`, `Tartarus.zip` in
+> `packs/` and `default.zip` in `metapacks/` (no foreign folders — `packs/` is scanned as-is). When in doubt, delete
+> the whole `plugins/Terra/` folder (back up your custom packs/configs first) and let Terra re-dump everything from
+> the jar.
 >
-> **Note (fix local)** : le fallback NMS de `createBlockState` contourne désormais le cache non thread-safe de
-> `CraftBlockData` (cause de `IllegalArgumentException: Invalid block state data: minecraft:chain` en Paper 26.1.2).
+> **Local fix note**: the NMS `createBlockState` fallback now bypasses the non-thread-safe `CraftBlockData` cache
+> (cause of `IllegalArgumentException: Invalid block state data: minecraft:chain` on Paper 26.1.2).
 
 Terra is a modern world generation modding platform, primarily for Minecraft.
 Terra allows complete customization of world generation with an advanced API,
