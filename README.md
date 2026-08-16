@@ -10,7 +10,7 @@
 > Aucune release officielle de Terra ne supporte encore Bukkit/Paper 26.1.2 (dernière release officielle : 6.2.0-BETA, Bukkit 1.19).
 >
 > Build produit localement le 2026-08-16 avec Gradle 9.5.0 / JDK 25 :
-> - Jar déployable : `dist/Terra-bukkit-7.0.0-BETA+47d4307-shaded.jar` (bindings NMS `v26_1_2` inclus + addons core)
+> - Jar déployable : `dist/Terra-bukkit-7.0.0-BETA+4542148-shaded.jar` (bindings NMS `v26_1_2` inclus + addons core)
 > - À régénérer : `./gradlew :platforms:bukkit:build` (JDK 25 requis, `platforms/bukkit/build/libs/`)
 >
 > **Risques** : code non mergé upstream, peut contenir des bugs ; PR maintenue par un contributeur tiers.
