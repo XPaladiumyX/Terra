@@ -10,18 +10,24 @@
 > Aucune release officielle de Terra ne supporte encore Bukkit/Paper 26.1.2 (dernière release officielle : 6.2.0-BETA, Bukkit 1.19).
 >
 > Build produit localement le 2026-08-16 avec Gradle 9.5.0 / JDK 25 :
-> - Jar déployable : `dist/Terra-bukkit-7.0.0-BETA+4542148-shaded.jar` (bindings NMS `v26_1_2` inclus + addons core)
+> - Jar déployable : `dist/Terra-bukkit-7.0.0-BETA+ee6d582-shaded.jar` (bindings NMS `v26_1_2` inclus + addons core)
 > - À régénérer : `./gradlew :platforms:bukkit:build` (JDK 25 requis, `platforms/bukkit/build/libs/`)
 >
 > **Risques** : code non mergé upstream, peut contenir des bugs ; PR maintenue par un contributeur tiers.
 > À remplacer par une release officielle dès qu'elle supportera nativement 26.1.2.
 >
 > **IMPORTANT — mise à niveau depuis un ancien build dev (ex. 6.6.6-BETA+451683aff) :**
-> videz `plugins/Terra/addons/` avant/après le remplacement du jar. Le mécanisme d'auto-remplacement de Terra ne
-> supprime que les addons portant le même nom ; les anciens addons renommés (ex. `biome-provider-pipeline-v2@…451683aff`)
-> restent, sont chargés par la nouvelle API et provoquent un `NoClassDefFoundError: com/dfsek/terra/api/noise/NoiseSampler`
-> (package noise supprimé de l'API) au chargement des packs → Terra se désactive. En cas de doute, supprimez tout le
-> dossier `plugins/Terra/` (sauvegardez vos packs/configs custom avant) et laissez Terra tout re-dumper depuis le jar.
+> videz `plugins/Terra/addons/` **et** `plugins/Terra/packs/` + `plugins/Terra/metapacks/` avant/après le remplacement
+> du jar. Le mécanisme d'auto-remplacement de Terra ne supprime que les fichiers portant le même nom ; les anciens
+> addons renommés (ex. `biome-provider-pipeline-v2@…451683aff`) restent et provoquent un
+> `NoClassDefFoundError: com/dfsek/terra/api/noise/NoiseSampler` (package noise supprimé de l'API), et les anciens packs
+> (ex. Overworld v1.5.2) provoquent `No such BaseAddon "biome-provider-pipeline-v2"` + `DuplicateEntryException
+> "OVERWORLD:OVERWORLD"`. Ne gardez que `Overworld.zip`, `ReimagEND.zip`, `Tartarus.zip` dans `packs/` et `default.zip`
+> dans `metapacks/` (aucun dossier étranger — `packs/` est scanné tel quel). En cas de doute, supprimez tout le dossier
+> `plugins/Terra/` (sauvegardez vos packs/configs custom avant) et laissez Terra tout re-dumper depuis le jar.
+>
+> **Note (fix local)** : le fallback NMS de `createBlockState` contourne désormais le cache non thread-safe de
+> `CraftBlockData` (cause de `IllegalArgumentException: Invalid block state data: minecraft:chain` en Paper 26.1.2).
 
 Terra is a modern world generation modding platform, primarily for Minecraft.
 Terra allows complete customization of world generation with an advanced API,
