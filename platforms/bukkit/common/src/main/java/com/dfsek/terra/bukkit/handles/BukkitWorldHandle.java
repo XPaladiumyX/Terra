@@ -54,7 +54,8 @@ public class BukkitWorldHandle implements WorldHandle {
                 Object result = method.invoke(null, data);
                 return BukkitBlockState.newInstance((BlockData) result);
             } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                throw new IllegalArgumentException("Invalid block state data: " + data);
+                logger.error("Failed to create block state for '{}' via both Bukkit and NMS fallback", data, e);
+                throw new IllegalArgumentException("Invalid block state data: " + data, e);
             }
         }
     }

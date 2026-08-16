@@ -22,7 +22,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.craftbukkit.CraftServer;
-import org.bukkit.craftbukkit.block.data.CraftBlockData;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -178,7 +177,7 @@ public class AwfulBukkitHacks {
         HolderLookup.Provider lookup = server.registryAccess();
         final HolderLookup<Block> blocks = lookup.lookupOrThrow(Registries.BLOCK);
         BlockResult result = BlockStateParser.parseForBlock(blocks, new StringReader(data), true);
-        return CraftBlockData.createData(result.blockState());
+        return new TerraCraftBlockData(result.blockState());
     }
 }
 
