@@ -15,6 +15,13 @@
 >
 > **Risques** : code non mergé upstream, peut contenir des bugs ; PR maintenue par un contributeur tiers.
 > À remplacer par une release officielle dès qu'elle supportera nativement 26.1.2.
+>
+> **IMPORTANT — mise à niveau depuis un ancien build dev (ex. 6.6.6-BETA+451683aff) :**
+> videz `plugins/Terra/addons/` avant/après le remplacement du jar. Le mécanisme d'auto-remplacement de Terra ne
+> supprime que les addons portant le même nom ; les anciens addons renommés (ex. `biome-provider-pipeline-v2@…451683aff`)
+> restent, sont chargés par la nouvelle API et provoquent un `NoClassDefFoundError: com/dfsek/terra/api/noise/NoiseSampler`
+> (package noise supprimé de l'API) au chargement des packs → Terra se désactive. En cas de doute, supprimez tout le
+> dossier `plugins/Terra/` (sauvegardez vos packs/configs custom avant) et laissez Terra tout re-dumper depuis le jar.
 
 Terra is a modern world generation modding platform, primarily for Minecraft.
 Terra allows complete customization of world generation with an advanced API,
