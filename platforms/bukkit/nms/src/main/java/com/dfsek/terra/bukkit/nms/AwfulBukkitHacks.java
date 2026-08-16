@@ -174,7 +174,7 @@ public class AwfulBukkitHacks {
     // used by BukkitWorldHandle
     public static BlockData createBlockState(@NotNull String data) throws CommandSyntaxException {
         MinecraftServer server = ((CraftServer) Bukkit.getServer()).getServer();
-        HolderLookup.Provider lookup = server.registryAccess();
+        HolderLookup.Provider lookup = server.reloadableRegistries().lookup();
         final HolderLookup<Block> blocks = lookup.lookupOrThrow(Registries.BLOCK);
         BlockResult result = BlockStateParser.parseForBlock(blocks, new StringReader(data), true);
         return new TerraCraftBlockData(result.blockState());
