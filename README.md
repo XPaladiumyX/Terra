@@ -1,6 +1,6 @@
 <img align="left" width="64" height="64" src="https://raw.githubusercontent.com/wiki/PolyhedralDev/Terra/images/terra_logo.png" alt="Terra Logo">
 
-# Terra — SkyXNetwork fork for Paper 26.1.2
+# Terra - SkyXNetwork fork for Paper 26.1.2
 
 A custom build of [Terra](https://github.com/PolyhedralDev/Terra), maintained by **SkyXNetwork** to keep
 Terra running on our Paper 26.1.2 servers.
@@ -48,7 +48,7 @@ Config packs updated for the 26.1.2 block set are published as **assets of the
 
 1. Stop your server.
 2. Copy the latest `Terra-bukkit-*-shaded.jar` from `dist/` into your `plugins/` folder.
-   Keep **one** Terra jar in `plugins/` — remove any older one.
+   Keep **one** Terra jar in `plugins/` - remove any older one.
 3. Start the server once. Terra unpacks its addons and default packs into `plugins/Terra/`.
 4. Stop the server, drop the packs you want (download them from the
    [releases](https://github.com/XPaladiumyX/Terra/releases) page) into `plugins/Terra/packs/`,
@@ -63,7 +63,7 @@ Before (or after) swapping the jar:
 
 1. empty `plugins/Terra/addons/`,
 2. in `plugins/Terra/packs/` keep only the zips you actually use (no leftover folders or old
-   zip versions — the folder is scanned as-is, and duplicate pack IDs cause errors),
+   zip versions - the folder is scanned as-is, and duplicate pack IDs cause errors),
 3. in `plugins/Terra/metapacks/` keep only `default.zip`.
 
 When in doubt: delete the whole `plugins/Terra/` folder (back up any custom pack first) and let
@@ -78,7 +78,7 @@ Terra unpack everything again from the jar.
 | Tartarus 0.0.2 Pre-Release | `chain` → `iron_chain` |
 
 The official default packs (Overworld 2.0.0, ReimagEND 3.0.0, Tartarus 1.0.0 and the default
-metapack) are bundled **inside the jar** and unpacked automatically — there is nothing to download
+metapack) are bundled **inside the jar** and unpacked automatically - there is nothing to download
 for them. The custom packs listed above are attached to each
 [GitHub release](https://github.com/XPaladiumyX/Terra/releases) as downloadable assets.
 
@@ -90,10 +90,10 @@ for them. The custom packs listed above are attached to each
 
 ## Credits & licensing
 
-- **Terra** — [PolyhedralDev](https://github.com/PolyhedralDev), licensed under MIT / GPLv3
+- **Terra** - [PolyhedralDev](https://github.com/PolyhedralDev), licensed under MIT / GPLv3
   (see the `LICENSE` files in the tree).
-- **Paper 26.1.2 support** — the unmerged [PR #559](https://github.com/PolyhedralDev/Terra/pull/559)
+- **Paper 26.1.2 support** - the unmerged [PR #559](https://github.com/PolyhedralDev/Terra/pull/559)
   by [ArikSquad](https://github.com/ArikSquad).
-- **Fork fixes** (CraftBlockData fallback, registry lookup, pack updates) — SkyXNetwork.
+- **Fork fixes** (CraftBlockData fallback, registry lookup, pack updates) - SkyXNetwork.
 
 This fork follows the same licenses as upstream Terra.
